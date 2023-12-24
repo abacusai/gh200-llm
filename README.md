@@ -4,7 +4,7 @@ The new NVIDIA GH200 chips hold a lot of promise because of their high CPU->GPU 
 
 We ran some initial real world tests comparing a new batch of **GH200 96GB GPU memory, 480GB node memory** nodes that we got from Lambda Labs. We did the initial tests on CUDA 12.2 and are waiting to repeat this with CUDA 12.3 which has some additional optimizations for CPU->GPU memory paging.
 
-To run tests on the GH200, we had to compile various libraries like Flash Attention, xformers, VLLM on CUDA 12.2 and ARM64 (the Grace Hopper CPU has ARM silicon). You can find the Docker image published at: `ghcr.io/abacusai/gh200-images/llm-train-serve:latest`
+To run tests on the GH200, we had to compile various libraries like Flash Attention, xformers, VLLM on CUDA 12.2 and ARM64 (the Grace Hopper CPU has ARM silicon). You can find the Docker image published at: `ghcr.io/abacusai/gh200-llm/llm-train-serve:latest`
 
 The main use cases that we were interested in testing were inference on large context requests on large models and full finetuning of smaller 13B and 7B models.  
 
