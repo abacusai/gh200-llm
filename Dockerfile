@@ -6,11 +6,13 @@ RUN pip install \
         accelerate \
         aioprometheus \
         deepspeed \
+        fastapi \
         peft \
         ray \
         sentencepiece \
         transformers \
-        trl
+        trl \
+        uvicorn
 
 RUN pip install --no-deps stanford-stk
 
