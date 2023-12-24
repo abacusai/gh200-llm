@@ -28,8 +28,7 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/xformers-0.0.24%2B40d3967.d
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/megablocks-0.5.0-cp310-cp310-linux_aarch64.whl /packages
 
-RUN pip uninstall -y flash-attn && \
-    pip install --no-deps --find-links /packages flash-attn==2.3.6
+RUN pip install --no-deps --find-links /packages flash-attn==2.3.6
 
 RUN pip install --no-deps --find-links /packages vllm==0.2.5
 
