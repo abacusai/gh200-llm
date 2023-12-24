@@ -1,5 +1,7 @@
 FROM nvcr.io/nvidia/pytorch:23.10-py3
 
+LABEL org.opencontainers.image.source="https://github.com/abacusai/gh200-llm"
+
 RUN pip install -U pip wheel
 
 RUN pip install \
