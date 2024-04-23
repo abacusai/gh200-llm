@@ -1,5 +1,8 @@
 FROM nvcr.io/nvidia/pytorch:24.01-py3
 
+RUN chown root:root /usr/lib
+RUN apt update -y && apt install -y build-essential curl openssh-server openssh-client pdsh
+
 RUN pip install --upgrade pip wheel
 
 RUN pip install \
@@ -40,8 +43,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/bitsandbytes-0.43.
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/bitsandbytes-0.43.0-cp310-cp310-linux_x86_64.whl /packages/
 RUN pip install --no-deps --find-links /packages bitsandbytes==0.43.0
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/vllm-0.4.0.post1%2Bcu123-cp310-cp310-linux_aarch64.whl /packages/
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/vllm-0.4.0.post1%2Bcu123-cp310-cp310-linux_x86_64.whl /packages/
-RUN pip install --no-deps --find-links /packages vllm==0.4.0.post1
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/vllm-0.4.1%2Bcu123-cp310-cp310-linux_aarch64.whl /packages/
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.3/vllm-0.4.1%2Bcu123-cp310-cp310-linux_x86_64.whl /packages/
+RUN pip install --no-deps --find-links /packages vllm==0.4.1
 
 RUN rm -r /packages
