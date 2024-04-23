@@ -7,20 +7,23 @@ RUN pip install --upgrade pip wheel
 
 RUN pip install \
         accelerate \
-        aioprometheus \
         deepspeed \
+        sentencepiece \
+        transformers
+
+RUN pip install \
+        aioprometheus \
         fastapi \
         fschat[model_worker,webui] \
+        lm-format-enforcer \
         outlines \
         peft \
         protobuf==3.20.3 \
         ray==2.9.2 \
-        sentencepiece \
-        transformers \
+        stanford-stk \
+        tiktoken \
         trl \
         uvicorn
-
-RUN pip install --no-deps stanford-stk
 
 RUN mkdir /packages/
 
