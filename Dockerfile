@@ -8,21 +8,21 @@ RUN pip install --upgrade pip wheel
 RUN pip install \
         accelerate \
         deepspeed \
+        peft \
         sentencepiece \
-        transformers
+        stanford-stk \
+        transformers \
+        trl
 
 RUN pip install \
         aioprometheus \
         fastapi \
         fschat[model_worker,webui] \
-        lm-format-enforcer \
-        outlines \
-        peft \
+        lm-format-enforcer==0.9.3 \
+        outlines==0.0.34 \
         protobuf==3.20.3 \
         ray==2.9.2 \
-        stanford-stk \
         tiktoken \
-        trl \
         uvicorn
 
 RUN mkdir /packages/
