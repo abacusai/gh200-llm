@@ -27,9 +27,6 @@ RUN pip install \
 
 RUN mkdir /packages/
 
-ADD https://github.com/acollins3/triton/releases/download/triton-2.1.0-arm64/triton-2.1.0-cp310-cp310-linux_aarch64.whl /packages/
-RUN pip install --no-deps --find-links /packages triton>=2.1.0
-
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/flash_attn-2.6.1-cp310-cp310-linux_aarch64.whl /packages/flash_attn-2.6.1-cp310-cp310-linux_aarch64.whl
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/flash_attn-2.6.1-cp310-cp310-linux_x86_64.whl /packages/flash_attn-2.6.1-cp310-cp310-linux_x86_64.whl
 RUN pip install --no-deps --find-links /packages flash-attn==2.6.1
@@ -42,8 +39,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/xformers-0.0.27%2B
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/xformers-0.0.27%2B184b280.d20240718-cp310-cp310-linux_x86_64.whl /packages/xformers-0.0.27+184b280.d20240718-cp310-cp310-linux_x86_64.whl
 RUN pip install --no-deps --find-links /packages xformers==0.0.27
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl
 RUN pip install --no-deps --find-links /packages megablocks==0.5.1
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/bitsandbytes-0.43.2.dev0-cp310-cp310-linux_aarch64.whl /packages/bitsandbytes-0.43.2.dev0-cp310-cp310-linux_aarch64.whl
