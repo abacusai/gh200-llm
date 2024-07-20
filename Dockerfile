@@ -10,9 +10,10 @@ RUN pip install \
         deepspeed \
         peft \
         sentencepiece \
-        stanford-stk \
         transformers \
         trl
+
+RUN pip install stanford-stk --no-deps 
 
 RUN pip install \
         aioprometheus \
