@@ -19,11 +19,15 @@ RUN pip install \
         aioprometheus \
         fastapi \
         fschat[model_worker,webui] \
-        lm-format-enforcer==0.9.3 \
-        outlines==0.0.34 \
+        lm-format-enforcer==0.10.3 \
+        openai \
+        outlines \
+        prometheus-fastapi-instrumentator \
         protobuf==3.20.3 \
+        pyarrow==14.0.2 \
         ray==2.9.2 \
         tiktoken \
+        typer==0.9.4 \
         uvicorn
 
 RUN mkdir /packages/
