@@ -8,8 +8,11 @@ RUN pip install --upgrade pip wheel
 RUN pip install \
         accelerate \
         deepspeed \
+        openai \
         peft \
+        pyarrow==14.0.2 \
         sentencepiece \
+        tiktoken \
         transformers \
         trl
 
@@ -20,13 +23,10 @@ RUN pip install \
         fastapi \
         fschat[model_worker,webui] \
         lm-format-enforcer==0.10.3 \
-        openai \
         outlines \
         prometheus-fastapi-instrumentator \
         protobuf==3.20.3 \
-        pyarrow==14.0.2 \
         ray==2.9.2 \
-        tiktoken \
         typer==0.9.4 \
         uvicorn
 
@@ -52,8 +52,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/bitsandbytes-0.43.
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/bitsandbytes-0.43.2.dev0-cp310-cp310-linux_x86_64.whl /packages/bitsandbytes-0.43.2.dev0-cp310-cp310-linux_x86_64.whl
 RUN pip install --no-index --no-deps --find-links /packages bitsandbytes==0.43.2.dev0
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/vllm-0.5.3%2Bcu125-cp310-cp310-linux_aarch64.whl /packages/vllm-0.5.3+cu125-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/vllm-0.5.3%2Bcu125-cp310-cp310-linux_x86_64.whl /packages/vllm-0.5.3+cu125-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-deps --find-links /packages vllm==0.5.3
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/vllm-0.5.3.post1%2Bcu125-cp310-cp310-linux_aarch64.whl /packages/vllm-0.5.3.post1+cu125-cp310-cp310-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/cuda12.5/vllm-0.5.3.post1%2Bcu125-cp310-cp310-linux_x86_64.whl /packages/vllm-0.5.3.post1+cu125-cp310-cp310-linux_x86_64.whl
+RUN pip install --no-deps --find-links /packages vllm==0.5.3.post1
 
 RUN rm -r /packages
