@@ -7,7 +7,7 @@ RUN pip install --upgrade pip wheel
 
 RUN pip install \
         accelerate \
-        deepspeed \
+        deepspeed==0.15.0 \
         openai \
         msgspec \
         peft \
