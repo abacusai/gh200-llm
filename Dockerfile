@@ -17,6 +17,9 @@ RUN pip install \
         transformers \
         trl
 
+RUN cd /usr/local/lib/python3.10/dist-packages/deepspeed/ops && \
+    curl https://github.com/abacusai/DeepSpeed/commit/097f525ac661cbea0822fc80b47db7e7551466e0.patch | patch -p1
+
 RUN pip install stanford-stk --no-deps
 
 RUN pip uninstall -y pynvml
@@ -47,7 +50,7 @@ RUN pip install --no-index --no-deps --find-links /packages vllm-flash-attn==2.6
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/xformers-0.0.27.post2-cp310-cp310-linux_aarch64.whl /packages/xformers-0.0.27.post2-cp310-cp310-linux_aarch64.whl
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/xformers-0.0.27.post2-cp310-cp310-linux_x86_64.whl /packages/xformers-0.0.27.post2-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-deps --find-links /packages xformers==0.0.27.post2
+RUN pip install --no-index --no-deps --find-links /packages xformers==0.0.27.post2
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl
