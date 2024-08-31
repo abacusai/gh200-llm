@@ -18,7 +18,7 @@ RUN pip install \
         trl
 
 RUN cd /usr/local/lib/python3.10/dist-packages/deepspeed/ops && \
-    curl https://github.com/abacusai/DeepSpeed/commit/097f525ac661cbea0822fc80b47db7e7551466e0.patch | patch -p1
+    curl https://github.com/microsoft/DeepSpeed/commit/4864991f53bd2e12446198bcc655f919eb9157f9.patch | patch -p1
 
 RUN pip install stanford-stk --no-deps
 
