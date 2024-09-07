@@ -7,7 +7,7 @@ RUN pip install --upgrade pip wheel
 
 RUN pip install \
         accelerate \
-        deepspeed==0.15.0 \
+        deepspeed==0.15.1 \
         openai \
         msgspec \
         peft \
@@ -16,9 +16,6 @@ RUN pip install \
         tiktoken \
         transformers \
         trl
-
-RUN cd /usr/local/lib/python3.10/dist-packages/deepspeed/ops && \
-    curl https://github.com/microsoft/DeepSpeed/commit/4864991f53bd2e12446198bcc655f919eb9157f9.patch | patch -p1
 
 RUN pip install stanford-stk --no-deps
 
@@ -34,7 +31,7 @@ RUN pip install \
         nvidia-ml-py \
         prometheus-fastapi-instrumentator \
         protobuf==3.20.3 \
-        ray==2.9.2 \
+        ray==2.34.0 \
         typer==0.9.4 \
         uvicorn[standard]
 
