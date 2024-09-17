@@ -32,7 +32,7 @@ RUN pip install \
         prometheus-fastapi-instrumentator \
         protobuf==3.20.3 \
         ray==2.34.0 \
-        typer==0.9.4 \
+        typer==0.12.3 \
         uvicorn[standard]
 
 RUN mkdir /packages/
