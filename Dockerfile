@@ -23,7 +23,7 @@ RUN pip uninstall -y pynvml
 
 RUN pip install \
         aioprometheus \
-        fastapi \
+        fastapi==0.111.0 \
         fschat[model_worker,webui] \
         gguf==0.9.1 \
         lm-format-enforcer==0.10.6 \
