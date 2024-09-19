@@ -1,0 +1,2 @@
+[{"role":"user","content":"Some user message"},{"role":"assistant","content":"Expected response"}]
+[{"role":"user","content":"Another message"},{"role":"assistant","content":"A different response"}]

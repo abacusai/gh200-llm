@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ex
 
-TRAINING_ROOT=/shared/gh200-llm/training/train
-DATASET_PATH=/shared/datasets/finetuning_data
+TRAINING_ROOT=/shared/gh200-llm/training
+DATASET_PATH=${TRAINING_ROOT}/sample_train.jsonl
 MODEL_ROOT=/shared/models
 
 
