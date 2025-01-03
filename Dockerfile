@@ -28,6 +28,7 @@ RUN pip install \
         lm-format-enforcer \
         llmcompressor \
         outlines \
+        partial_json_parser \
         prometheus-fastapi-instrumentator \
         ray==2.34.0 \
         typer \
