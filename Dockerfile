@@ -1,4 +1,4 @@
-FROM nvcr.io/nvidia/pytorch:24.07-py3
+FROM nvcr.io/nvidia/pytorch:24.12-py3
 
 RUN chown root:root /usr/lib
 RUN apt update -y && apt install -y build-essential curl openssh-server openssh-client pdsh tmux
@@ -7,11 +7,12 @@ RUN pip install --upgrade pip wheel
 
 RUN pip install \
         accelerate \
-        deepspeed==0.15.1 \
+        deepspeed \
         openai \
+        mistral_common \
         msgspec \
         peft \
-        pyarrow==14.0.2 \
+        pyarrow \
         sentencepiece \
         tiktoken \
         transformers \
@@ -19,46 +20,43 @@ RUN pip install \
 
 RUN pip install stanford-stk --no-deps
 
-RUN pip uninstall -y pynvml
-
 RUN pip install \
         aioprometheus \
-        fastapi==0.111.0 \
+        fastapi \
         fschat[model_worker,webui] \
-        gguf==0.9.1 \
-        lm-format-enforcer==0.10.6 \
+        gguf \
+        lm-format-enforcer \
+        llmcompressor \
         outlines \
-        nvidia-ml-py \
         prometheus-fastapi-instrumentator \
-        protobuf==3.20.3 \
         ray==2.34.0 \
-        typer==0.12.3 \
+        typer \
         uvicorn[standard]
+
+RUN pip uninstall -y pynvml
+
+RUN pip install nvidia-ml-py
 
 RUN mkdir /packages/
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/flash_attn-2.6.3-cp310-cp310-linux_aarch64.whl /packages/flash_attn-2.6.3-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/flash_attn-2.6.3-cp310-cp310-linux_x86_64.whl /packages/flash_attn-2.6.3-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-deps --find-links /packages flash-attn==2.6.3
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flash_attn-2.7.2.post1-cp312-cp312-linux_aarch64.whl /packages/flash_attn-2.7.2.post1-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flash_attn-2.7.2.post1-cp312-cp312-linux_x86_64.whl /packages/flash_attn-2.7.2.post1-cp312-cp312-linux_x86_64.whl
+RUN pip install --no-deps --no-index --upgrade --find-links /packages flash-attn
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/vllm_flash_attn-2.6.1%2Bcu125-cp310-cp310-linux_aarch64.whl /packages/vllm_flash_attn-2.6.1+cu125-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/vllm_flash_attn-2.6.1%2Bcu125-cp310-cp310-linux_x86_64.whl /packages/vllm_flash_attn-2.6.1+cu125-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-index --no-deps --find-links /packages vllm-flash-attn==2.6.1
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/xformers-0.0.30%2B46a02df6.d20250103-cp312-cp312-linux_aarch64.whl /packages/xformers-0.0.30+46a02df6.d20250103-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/xformers-0.0.30%2B46a02df6.d20250103-cp312-cp312-linux_x86_64.whl /packages/xformers-0.0.30+46a02df6.d20250103-cp312-cp312-linux_x86_64.whl
+RUN pip install --no-deps --no-index --find-links /packages xformers
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/xformers-0.0.27.post2-cp310-cp310-linux_aarch64.whl /packages/xformers-0.0.27.post2-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/xformers-0.0.27.post2-cp310-cp310-linux_x86_64.whl /packages/xformers-0.0.27.post2-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-index --no-deps --find-links /packages xformers==0.0.27.post2
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/megablocks-0.7.0-cp312-cp312-linux_aarch64.whl /packages/megablocks-0.7.0-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/megablocks-0.7.0-cp312-cp312-linux_x86_64.whl /packages/megablocks-0.7.0-cp312-cp312-linux_x86_64.whl
+RUN pip install --no-deps --no-index --find-links /packages megablocks
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl /packages/megablocks-0.5.1-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-deps --find-links /packages megablocks==0.5.1
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_aarch64.whl /packages/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl /packages/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl
+RUN pip install --no-deps --no-index --find-links /packages bitsandbytes
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/bitsandbytes-0.43.3-cp310-cp310-linux_aarch64.whl /packages/bitsandbytes-0.43.3-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/bitsandbytes-0.43.3-cp310-cp310-linux_x86_64.whl /packages/bitsandbytes-0.43.3-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-index --no-deps --find-links /packages bitsandbytes==0.43.3
-
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/vllm-0.5.5%2Bcu125-cp310-cp310-linux_aarch64.whl /packages/vllm-0.5.5+cu125-cp310-cp310-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2407-cuda125/vllm-0.5.5%2Bcu125-cp310-cp310-linux_x86_64.whl /packages/vllm-0.5.5+cu125-cp310-cp310-linux_x86_64.whl
-RUN pip install --no-deps --find-links /packages vllm==0.5.5
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.6.6.post1%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.6.6.post1+cu126-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.6.6.post1%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.6.6.post1+cu126-cp312-cp312-linux_x86_64.whl
+RUN pip install --no-deps --no-index --find-links /packages vllm
 
 RUN rm -r /packages
