@@ -1,7 +1,7 @@
 FROM nvcr.io/nvidia/pytorch:24.12-py3
 
 RUN chown root:root /usr/lib
-RUN apt update -y && apt install -y build-essential curl openssh-server openssh-client pdsh tmux
+RUN apt update -y && apt install -y build-essential curl kmod openssh-server openssh-client pdsh tmux
 
 RUN pip install --upgrade pip wheel
 
@@ -22,6 +22,7 @@ RUN pip install stanford-stk --no-deps
 
 RUN pip install \
         aioprometheus \
+        blake3 \
         fastapi \
         fschat[model_worker,webui] \
         gguf \
@@ -30,7 +31,7 @@ RUN pip install \
         outlines \
         partial_json_parser \
         prometheus-fastapi-instrumentator \
-        ray==2.34.0 \
+        ray \
         typer \
         uvicorn[standard]
 
@@ -56,8 +57,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsan
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl /packages/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl
 RUN pip install --no-deps --no-index --find-links /packages bitsandbytes
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.6.6.post1%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.6.6.post1+cu126-cp312-cp312-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.6.6.post1%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.6.6.post1+cu126-cp312-cp312-linux_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.0%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.7.0+cu126-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.0%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.0+cu126-cp312-cp312-linux_x86_64.whl
 RUN pip install --no-deps --no-index --find-links /packages vllm
 
 RUN rm -r /packages
