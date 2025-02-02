@@ -32,6 +32,7 @@ RUN pip install \
         partial_json_parser \
         prometheus-fastapi-instrumentator \
         ray \
+        setuptools_scm \
         typer \
         uvicorn[standard]
 
@@ -57,8 +58,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsan
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl /packages/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl
 RUN pip install --no-deps --no-index --find-links /packages bitsandbytes
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.0%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.7.0+cu126-cp312-cp312-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.0%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.0+cu126-cp312-cp312-linux_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.1%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.7.1+cu126-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.1%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.1+cu126-cp312-cp312-linux_x86_64.whl
 RUN pip install --no-deps --no-index --find-links /packages vllm
 
 RUN rm -r /packages
