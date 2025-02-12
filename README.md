@@ -6,6 +6,6 @@ This repo maintains a ready to use docker image which works on H100s and GH200s 
 
 These days, you can also quantize a 70B or a 72B model (both excellent candidates for finetuning and distillation from reasoner models), by running the `training/quantize_fp8.py` on a on a 2xH100 node, and serve on a single GH200 node. The 92GB GPU allows you to host it at full context length in fp8 mode. [Lambda Labs](https://lambdalabs.com/) has some great rates for single node GH200 on-demand rentals.
 
-We can also serve DeepSeek-R1 on a 8xGH200 node (connected using Infiniband) using this docker along with vLLM and Ray
+We can also serve DeepSeek-R1 on a 8xGH200 node (connected using Infiniband) using this docker along with SGLang or vLLM and Ray
 
 Docker image is published at: `ghcr.io/abacusai/gh200-llm/llm-train-serve:latest`
