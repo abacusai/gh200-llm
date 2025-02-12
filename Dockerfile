@@ -79,7 +79,7 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashi
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.0.post2-cp312-cp312-linux_x86_64.whl /packages/flashinfer_python-0.2.0.post2-cp312-cp312-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages flashinfer-python
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/decord-0.6.0-cp312-cp312-linux_aarch64.whl /packages/decord-0.6.0-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/decord-0.6.0-patched-cp312-cp312-linux_aarch64.whl /packages/decord-0.6.0-cp312-cp312-linux_aarch64.whl
 ADD https://files.pythonhosted.org/packages/11/79/936af42edf90a7bd4e41a6cac89c913d4b47fa48a26b042d5129a9242ee3/decord-0.6.0-py3-none-manylinux2010_x86_64.whl /packages/decord-0.6.0-py3-none-manylinux2010_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages decord
 
