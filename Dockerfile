@@ -75,8 +75,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_ke
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_x86_64.whl /packages/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages sgl-kernel
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.0.post2-cp312-cp312-linux_aarch64.whl /packages/flashinfer_python-0.2.0.post2-cp312-cp312-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.0.post2-cp312-cp312-linux_x86_64.whl /packages/flashinfer_python-0.2.0.post2-cp312-cp312-linux_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.1.post1-cp38-abi3-linux_aarch64.whl /packages/flashinfer_python-0.2.1.post1-cp38-abi3-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.1.post1-cp38-abi3-linux_x86_64.whl /packages/flashinfer_python-0.2.1.post1-cp38-abi3-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages flashinfer-python
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/decord-0.6.0-patched-cp312-cp312-linux_aarch64.whl /packages/decord-0.6.0-cp312-cp312-linux_aarch64.whl
