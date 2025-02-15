@@ -64,15 +64,15 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.2%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.2+cu126-cp312-cp312-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages vllm
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sglang-0.4.2.post4-py3-none-any.whl /packages/sglang-0.4.2.post4-py3-none-any.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sglang-0.4.3-py3-none-any.whl /packages/sglang-0.4.3-py3-none-any.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages sglang
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sglang_router-0.1.4-cp312-cp312-linux_aarch64.whl /packages/sglang_router-0.1.4-cp312-cp312-linux_aarch64.whl
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sglang_router-0.1.4-cp312-cp312-linux_x86_64.whl /packages/sglang_router-0.1.4-cp312-cp312-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages sglang-router
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_kernel-0.0.3.post3-cp39-abi3-manylinux2014_aarch64.whl /packages/sgl_kernel-0.0.3.post3-cp39-abi3-manylinux2014_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_kernel-0.0.3.post3-cp39-abi3-manylinux2014_x86_64.whl /packages/sgl_kernel-0.0.3.post3-cp39-abi3-manylinux2014_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_aarch64.whl /packages/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_x86_64.whl /packages/sgl_kernel-0.0.3.post6-cp39-abi3-manylinux2014_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages sgl-kernel
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/flashinfer_python-0.2.0.post2-cp312-cp312-linux_aarch64.whl /packages/flashinfer_python-0.2.0.post2-cp312-cp312-linux_aarch64.whl
