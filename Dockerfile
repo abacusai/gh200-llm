@@ -60,8 +60,8 @@ ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsan
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl /packages/bitsandbytes-0.45.1.dev0-cp312-cp312-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages bitsandbytes
 
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.2%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.7.2+cu126-cp312-cp312-linux_aarch64.whl
-ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.2%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.2+cu126-cp312-cp312-linux_x86_64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.3%2Bcu126-cp312-cp312-linux_aarch64.whl /packages/vllm-0.7.3+cu126-cp312-cp312-linux_aarch64.whl
+ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/vllm-0.7.3%2Bcu126-cp312-cp312-linux_x86_64.whl /packages/vllm-0.7.3+cu126-cp312-cp312-linux_x86_64.whl
 RUN pip install --root-user-action=ignore --no-deps --no-index --find-links /packages vllm
 
 ADD https://static.abacus.ai/pypi/abacusai/gh200-llm/pytorch-2412-cuda126/decord-0.6.0-patched-cp312-cp312-linux_aarch64.whl /packages/decord-0.6.0-cp312-cp312-linux_aarch64.whl
