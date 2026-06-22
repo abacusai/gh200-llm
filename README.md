@@ -9,3 +9,5 @@ These days, you can also quantize a 70B or a 72B model (both excellent candidate
 We can also serve DeepSeek-R1 on a 8xGH200 node (connected using Infiniband) using this docker along with SGLang or vLLM and Ray
 
 Docker image is published at: `ghcr.io/abacusai/gh200-llm/llm-train-serve:latest`
+
+Update - vllm now has instructions on building from source for gh200 [here](https://docs.vllm.ai/en/latest/deployment/docker/?h=gh200#build-image-from-source). this image is published at ghcr.io/abacusai/gh200-llm/vllm-openai:latest
