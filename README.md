@@ -10,4 +10,4 @@ We can also serve DeepSeek-R1 on a 8xGH200 node (connected using Infiniband) usi
 
 Docker image is published at: `ghcr.io/abacusai/gh200-llm/llm-train-serve:latest`
 
-Update - vllm now has instructions on building from source for gh200 [here](https://docs.vllm.ai/en/latest/deployment/docker/?h=gh200#build-image-from-source). this image is published at ghcr.io/abacusai/gh200-llm/vllm-openai:latest
+Update - vllm now has instructions on building from source for gh200 [here](https://docs.vllm.ai/en/latest/deployment/docker/?h=gh200#build-image-from-source). this image is published at `ghcr.io/abacusai/gh200-llm/vllm-openai:latest`
